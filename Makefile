@@ -201,7 +201,7 @@ eslint: lint
 
 # Testing
 test: config-test package
-	@NODE_PATH=calypso/server$(ENV_PATH_SEP)calypso/client $(WEBPACK_BIN) --config ./webpack.config.test.js
+	@NODE_PATH=calypso/server$(ENV_PATH_SEP)calypso/client CALYPSO_SERVER=true $(WEBPACK_BIN) --config ./webpack.config.test.js
 	@CALYPSO_PATH=`pwd`/build $(ELECTRON_TEST) --inline-diffs --timeout 15000 build/desktop-test.js
 
 test-osx: osx
